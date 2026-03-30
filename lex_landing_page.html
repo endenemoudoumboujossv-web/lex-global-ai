@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>LEX GLOBAL AI — Intelligence Juridique Internationale</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0C1A2E;--gold:#C4A050;--gl:#E8C97A;--cream:#F5F0E8;--dark:#080C12;--text:#2C2C2C;--muted:#6B6B6B}
+html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+.hero{min-height:100vh;background:var(--navy);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(196,160,80,.08) 0%,transparent 70%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(196,160,80,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(196,160,80,.04) 1px,transparent 1px);background-size:60px 60px}
+nav{position:relative;z-index:10;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(196,160,80,.12)}
+.logo{display:flex;align-items:center;gap:12px}
+.li{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-size:20px}
+.lt{font-family:'Playfair Display',serif;font-size:18px;color:#F0EAD6;letter-spacing:.06em}
+.ls{font-size:9px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-top:2px}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{color:rgba(240,234,214,.6);font-size:13px;text-decoration:none;transition:color .2s}.nl a:hover{color:var(--gold)}
+.nc{background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}.nc:hover{background:var(--gl);transform:translateY(-1px)}
+.hc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;position:relative;z-index:2}
+.hb{display:inline-flex;align-items:center;gap:8px;background:rgba(196,160,80,.1);border:1px solid rgba(196,160,80,.3);border-radius:20px;padding:6px 16px;margin-bottom:30px;font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.dot{width:6px;height:6px;border-radius:50%;background:#6BCB77;box-shadow:0 0 8px #6BCB77;display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,76px);color:#F0EAD6;font-weight:400;line-height:1.1;margin-bottom:12px}
+h1 em{color:var(--gold);font-style:italic}
+.hs{font-size:clamp(15px,2vw,20px);color:rgba(240,234,214,.55);max-width:640px;line-height:1.6;margin-bottom:44px;font-weight:300}
+.hca{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.bp{background:linear-gradient(135deg,var(--gold),#8B6914);color:var(--navy);padding:15px 34px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(196,160,80,.25)}.bp:hover{transform:translateY(-2px)}
+.bs{background:rgba(240,234,214,.06);color:#F0EAD6;padding:15px 34px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all .25s;border:1px solid rgba(240,234,214,.15)}.bs:hover{background:rgba(240,234,214,.1)}
+.hst{display:flex;gap:44px;justify-content:center;padding-top:44px;border-top:1px solid rgba(196,160,80,.1)}
+.sn{font-family:'Playfair Display',serif;font-size:34px;color:var(--gold);display:block}
+.sl{font-size:11px;color:rgba(240,234,214,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+section.ws{padding:90px 60px;max-width:1200px;margin:0 auto}
+.slb{font-size:11px;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;margin-bottom:14px;display:block}
+.st{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);color:var(--navy);line-height:1.15;margin-bottom:20px}
+.st em{font-style:italic;color:var(--gold)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:56px}
+.pi{display:flex;gap:14px;padding:18px;border-left:3px solid rgba(196,160,80,.2);background:rgba(12,26,46,.03);border-radius:0 8px 8px 0;transition:border-color .2s;margin-bottom:14px}.pi:hover{border-left-color:var(--gold)}
+.pic{font-size:20px;flex-shrink:0;margin-top:2px}
+.pit h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:5px}
+.pit p{font-size:12px;color:var(--muted);line-height:1.6}
+.sc{background:var(--navy);border-radius:18px;padding:36px;border:1px solid rgba(196,160,80,.2)}
+.sc h3{font-family:'Playfair Display',serif;font-size:24px;color:#F0EAD6;margin-bottom:14px}
+.sc p{font-size:13px;color:rgba(240,234,214,.6);line-height:1.7;margin-bottom:22px}
+.sr{background:rgba(196,160,80,.1);border:1px solid rgba(196,160,80,.25);border-radius:10px;padding:16px 20px}
+.sr .t{font-family:'Playfair Display',serif;font-size:40px;color:var(--gold)}
+.sr .l{font-size:11px;color:rgba(240,234,214,.5);margin-top:4px}
+.as{background:var(--navy);padding:90px 60px}
+.ag{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px;max-width:1200px;margin-left:auto;margin-right:auto}
+.ac{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 18px;text-align:center;transition:all .25s}
+.ac:hover{transform:translateY(-3px);border-color:rgba(196,160,80,.3);background:rgba(196,160,80,.06)}
+.ai{font-size:34px;margin-bottom:12px;display:block}
+.an{font-size:13px;font-weight:600;color:#F0EAD6;margin-bottom:7px}
+.ad{font-size:11px;color:rgba(240,234,214,.45);line-height:1.5}
+.ds{background:var(--navy);padding:90px 60px;text-align:center}
+.db{background:rgba(255,255,255,.03);border:1px solid rgba(196,160,80,.2);border-radius:18px;padding:44px;max-width:780px;margin:44px auto 0;text-align:left}
+.dq{background:rgba(196,160,80,.08);border:1px solid rgba(196,160,80,.2);border-radius:10px;padding:14px 18px;margin-bottom:22px;font-size:13px;color:var(--gold);font-style:italic;line-height:1.6}
+.dbt{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.dbc{font-size:12px;color:rgba(240,234,214,.7);line-height:1.7;padding-left:12px;border-left:2px solid rgba(196,160,80,.3);margin-bottom:18px}
+.ps{padding:90px 60px;background:var(--cream)}
+.pg2{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:56px auto 0}
+.pc{background:#fff;border:1px solid rgba(12,26,46,.1);border-radius:18px;padding:34px 30px;transition:all .25s;position:relative;overflow:hidden}
+.pc:hover{transform:translateY(-3px);box-shadow:0 18px 56px rgba(12,26,46,.1)}
+.pc.ft{background:var(--navy);border-color:var(--gold);box-shadow:0 18px 56px rgba(12,26,46,.3)}
+.fb{position:absolute;top:18px;right:18px;background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;padding:3px 9px;border-radius:10px;letter-spacing:.1em}
+.pn{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;color:var(--gold)}
+.pp{font-family:'Playfair Display',serif;font-size:44px;color:var(--navy);line-height:1}
+.pc.ft .pp{color:#F0EAD6}
+.pp span{font-size:15px;font-weight:400;color:var(--muted)}
+.pc.ft .pp span{color:rgba(240,234,214,.5)}
+.pd{font-size:12px;color:var(--muted);margin:10px 0 22px;line-height:1.5}
+.pc.ft .pd{color:rgba(240,234,214,.5)}
+.pf{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:9px}
+.pf li{display:flex;gap:9px;font-size:12px;color:var(--text)}
+.pc.ft .pf li{color:rgba(240,234,214,.8)}
+.pf li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.pb{display:block;text-align:center;padding:13px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(12,26,46,.08);color:var(--navy);border:1px solid rgba(12,26,46,.15);cursor:pointer}
+.pc.ft .pb{background:var(--gold);color:var(--navy);border:none}
+.pb:hover{transform:translateY(-1px)}
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;align-items:center;justify-content:center}
+.modal.open{display:flex}
+.mbox{background:#111827;border:1px solid rgba(196,160,80,.3);border-radius:20px;padding:40px;max-width:480px;width:90%;position:relative}
+.mc{position:absolute;top:14px;right:18px;background:none;border:none;color:#666;font-size:22px;cursor:pointer}
+.mbox h3{font-family:'Playfair Display',serif;font-size:24px;color:#F0EAD6;margin-bottom:8px}
+.mbox p{font-size:13px;color:#888;margin-bottom:24px;line-height:1.6}
+.fi{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:11px 14px;color:#E8E0D0;font-size:13px;font-family:'DM Sans',sans-serif;margin-bottom:12px}
+.fi:focus{outline:none;border-color:rgba(196,160,80,.5)}
+.fs{display:flex;gap:10px;margin-top:4px}
+.sub{flex:1;padding:12px;background:linear-gradient(135deg,var(--gold),#8B6914);border:none;border-radius:9px;color:var(--navy);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.sub:hover{transform:translateY(-1px)}
+.can{padding:12px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:9px;color:#888;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.ty{display:none;text-align:center;padding:20px 0}
+.ty .ic{font-size:48px;margin-bottom:12px}
+.ty h4{font-family:'Playfair Display',serif;font-size:22px;color:#F0EAD6;margin-bottom:8px}
+.ty p{font-size:13px;color:#888;line-height:1.6}
+.cs{background:var(--navy);padding:100px 60px;text-align:center;position:relative;overflow:hidden}
+.cs::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(196,160,80,.08) 0%,transparent 70%)}
+.cs h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,60px);color:#F0EAD6;position:relative;z-index:1;margin-bottom:18px}
+.cs h2 em{color:var(--gold);font-style:italic}
+.cs p{font-size:16px;color:rgba(240,234,214,.5);margin-bottom:44px;position:relative;z-index:1}
+.cs .bp{position:relative;z-index:1;font-size:16px;padding:18px 44px}
+footer{background:var(--dark);padding:44px 60px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.fl{font-family:'Playfair Display',serif;font-size:18px;color:rgba(240,234,214,.5)}
+.flg{font-size:11px;color:rgba(240,234,214,.2);max-width:380px;line-height:1.6;margin-top:7px}
+.fls{display:flex;gap:20px;flex-wrap:wrap}
+.fls a{font-size:12px;color:rgba(240,234,214,.3);text-decoration:none}.fls a:hover{color:var(--gold)}
+@media(max-width:768px){nav{padding:18px 20px}.nl{display:none}.hc{padding:60px 24px}section.ws{padding:60px 24px}.pg{grid-template-columns:1fr}.ag{grid-template-columns:repeat(2,1fr)}.pg2{grid-template-columns:1fr}.hst{gap:22px;flex-wrap:wrap}.as,.ds,.ps,.cs{padding:60px 24px}footer{padding:36px 24px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="grid"></div>
+  <nav>
+    <div class="logo"><div class="li">⚖</div><div><div class="lt">LEX GLOBAL AI</div><div class="ls">Intelligence Juridique</div></div></div>
+    <div class="nl"><a href="#solution">Solution</a><a href="#agents">Agents IA</a><a href="#demo">Démo</a><a href="#pricing">Tarifs</a></div>
+    <a href="#pricing" class="nc">Démarrer — 199€/mois</a>
+  </nav>
+  <div class="hc">
+    <div class="hb"><span class="dot"></span>Système actif · Droit des étrangers · France & UE</div>
+    <h1>L'<em>intelligence juridique</em><br/>internationale, enfin unifiée</h1>
+    <p class="hs">Croisez droit français, européen et international en 30 secondes. Jurisprudence CEDH, CJUE, Conseil d'État — analysés et structurés par 5 agents IA spécialisés.</p>
+    <div class="hca">
+      <button class="bp" onclick="window.open('https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01','_blank')">Commencer l'essai gratuit</button>
+      <a href="#demo" class="bs">Voir une démo</a>
+    </div>
+    <div class="hst">
+      <div class="si"><span class="sn">30s</span><div class="sl">Analyse complète</div></div>
+      <div class="si"><span class="sn">5</span><div class="sl">Agents spécialisés</div></div>
+      <div class="si"><span class="sn">4h</span><div class="sl">Économisées/dossier</div></div>
+      <div class="si"><span class="sn">100%</span><div class="sl">Sources citées</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="solution" style="background:#fff;padding:90px 0">
+  <div class="ws">
+    <span class="slb">Le problème</span>
+    <h2 class="st">Le droit international est <em>fragmenté.</em><br/>Votre temps ne l'est pas.</h2>
+    <div class="pg">
+      <div>
+        <div class="pi"><div class="pic">⏱</div><div class="pit"><h4>3 à 8 heures perdues par dossier</h4><p>Croiser manuellement CESEDA, directives UE, arrêts CEDH et conventions ONU sur chaque affaire.</p></div></div>
+        <div class="pi"><div class="pic">🗂</div><div class="pit"><h4>Jurisprudence dispersée</h4><p>10 000+ arrêts CEDH, CJUE, Conseil d'État. Introuvables rapidement. Souvent manqués.</p></div></div>
+        <div class="pi"><div class="pic">⚠️</div><div class="pit"><h4>Angles stratégiques invisibles</h4><p>Les failles procédurales existent. Mais les trouver prend trop de temps.</p></div></div>
+        <div class="pi"><div class="pic">🌍</div><div class="pit"><h4>Zéro outil unifié multi-juridictionnel</h4><p>Les IA juridiques existantes sont locales, non systémiques, et ignorent le droit international.</p></div></div>
+      </div>
+      <div class="sc">
+        <h3>LEX GLOBAL AI résout tout ça.</h3>
+        <p>Un moteur d'intelligence juridique qui croise automatiquement toutes les sources normatives applicables et génère un argumentaire structuré, prêt à utiliser.</p>
+        <div class="sr"><div class="t">30 secondes</div><div class="l">Analyse complète · Sources citées · Plan d'action · Précédents identifiés</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents" class="as">
+  <div style="max-width:1200px;margin:0 auto;text-align:center">
+    <span class="slb" style="color:var(--gold)">5 agents spécialisés</span>
+    <h2 class="st" style="color:#F0EAD6">Chaque situation a son <em>expert dédié</em></h2>
+  </div>
+  <div class="ag">
+    <div class="ac"><span class="ai">🏛</span><div class="an">Agent Asile</div><div class="ad">OFPRA · CNDA · Convention Genève · Protection subsidiaire</div></div>
+    <div class="ac"><span class="ai">⚡</span><div class="an">Agent OQTF</div><div class="ad">Contestation · Délais · Recours suspensif · Vices de procédure</div></div>
+    <div class="ac"><span class="ai">⚖</span><div class="an">Agent CEDH</div><div class="ad">Violations · Recevabilité · Requête Strasbourg · 10 000+ arrêts</div></div>
+    <div class="ac"><span class="ai">📋</span><div class="an">Agent Régularisation</div><div class="ad">Titre VPF · Admission exceptionnelle · MNA · Dossier complet</div></div>
+    <div class="ac"><span class="ai">🤝</span><div class="an">Agent ONG</div><div class="ad">Orientation · Réseau associatif · Urgences · Protocoles</div></div>
+  </div>
+</section>
+
+<section id="demo" class="ds">
+  <div style="max-width:860px;margin:0 auto">
+    <span class="slb" style="color:var(--gold)">Démo live</span>
+    <h2 class="st" style="color:#F0EAD6">Voyez <em>LEX en action</em></h2>
+    <div class="db">
+      <div style="font-size:10px;color:rgba(240,234,214,.3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px">Situation soumise — Agent Asile</div>
+      <div class="dq">"Demandeur d'asile guinéen, 28 ans, débouté OFPRA et CNDA. OQTF notifiée il y a 8 jours. Risques de persécution liés à l'orientation sexuelle documentés."</div>
+      <div style="font-size:10px;color:rgba(240,234,214,.35);letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px">Analyse générée en 28 secondes</div>
+      <div class="dbt">Base légale applicable</div>
+      <div class="dbc">Art. 1A(2) Convention Genève 1951 · Dir. 2011/95/UE art. 10(1)(d) · CESEDA L.721-2 · Art. 3 et 8 CEDH protection absolue</div>
+      <div class="dbt">Jurisprudence déterminante</div>
+      <div class="dbc">CEDH — M.E. c. Suède (2014) · CJUE — Minister voor Immigratie C-199/12 · CE — 10e-9e SSR 2018 : charge de la preuve allégée LGBTQ</div>
+      <div class="dbt">Plan d'action — 48h</div>
+      <div class="dbc">1. Référé-suspension TA (délai 15 jours) · 2. Mesures provisoires CEDH art. 39 · 3. Saisine OFPRA réexamen · 4. Contact ARDHIS immédiat</div>
+      <div style="padding:10px 14px;background:rgba(196,160,80,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:11px;color:rgba(196,160,80,.7);font-style:italic">⚠️ Support documentaire uniquement. Ne constitue pas un avis juridique. À valider par un avocat qualifié.</div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="ps">
+  <div style="max-width:1100px;margin:0 auto;text-align:center">
+    <span class="slb">Tarifs</span>
+    <h2 class="st">Investissement. <em>Pas une dépense.</em></h2>
+    <p style="font-size:15px;color:var(--muted);max-width:520px;margin:0 auto">Un dossier gagné grâce à un angle trouvé en 30 secondes rentabilise l'abonnement annuel entier.</p>
+  </div>
+  <div class="pg2">
+    <div class="pc">
+      <div class="pn">Starter</div>
+      <div class="pp">199<span>€/mois</span></div>
+      <div class="pd">Pour les avocats solo et jeunes cabinets</div>
+      <ul class="pf"><li>1 utilisateur</li><li>100 analyses/mois</li><li>5 agents IA</li><li>Export PDF</li><li>Base jurisprudentielle</li><li>Support email</li></ul>
+      <button class="pb" onclick="window.open('https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01','_blank')">Démarrer — 199€/mois</button>
+    </div>
+    <div class="pc ft">
+      <div class="fb">POPULAIRE</div>
+      <div class="pn">Pro</div>
+      <div class="pp" style="color:#F0EAD6">499<span>€/mois</span></div>
+      <div class="pd">Pour les cabinets établis et ONG</div>
+      <ul class="pf"><li>3 utilisateurs</li><li>Analyses illimitées</li><li>Alertes jurisprudence</li><li>Accès API</li><li>Gestion dossiers avancée</li><li>Support prioritaire 24h</li></ul>
+      <button class="pb" onclick="window.open('https://buy.stripe.com/cNicN41GQ2U68Ql60MeUU02','_blank')">Démarrer — 499€/mois</button>
+    </div>
+    <div class="pc">
+      <div class="pn">Cabinet</div>
+      <div class="pp">999<span>€/mois</span></div>
+      <div class="pd">Pour les cabinets et structures importantes</div>
+      <ul class="pf"><li>10 utilisateurs</li><li>Analyses illimitées</li><li>Onboarding dédié</li><li>SLA garanti 24h</li><li>Formations équipe</li><li>Rapport mensuel usage</li></ul>
+      <button class="pb" onclick="window.open('https://buy.stripe.com/8x2bJ01GQbqC9Up2OAeUU03','_blank')">Démarrer — 999€/mois</button>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(196,160,80,.08);border:1px solid rgba(196,160,80,.2);border-radius:20px;padding:10px 22px">
+      <span style="font-size:16px">🎯</span>
+      <span style="font-size:13px;color:var(--muted)"><strong style="color:var(--navy)">Early Adopter :</strong> 50% de réduction 3 mois pour les 10 premiers cabinets · Code <strong style="color:var(--gold)">LEXFONDATEUR</strong></span>
+    </div>
+  </div>
+</section>
+
+<section class="cs">
+  <h2>Commencez à gagner du temps<br/><em>dès aujourd'hui.</em></h2>
+  <p>Vos clients méritent le meilleur argumentaire possible. En 30 secondes.</p>
+  <button class="bp" onclick="window.open('https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01','_blank')">Démarrer l'essai — 199€/mois</button>
+  <div style="margin-top:20px;font-size:12px;color:rgba(240,234,214,.3)">Sans engagement · Annulation à tout moment · Support humain inclus</div>
+</section>
+
+<footer>
+  <div><div class="fl">LEX GLOBAL AI ⚖</div><div class="flg">Support documentaire uniquement. LEX GLOBAL AI n'est pas un cabinet d'avocats. Toute analyse doit être validée par un professionnel du droit. © 2026 LEX GLOBAL AI.</div></div>
+  <div><div class="fls"><a href="#">Mentions légales</a><a href="#">CGU</a><a href="#">RGPD</a><a href="/cdn-cgi/l/email-protection#6d0e0203190c0e192d0108150a01020f0c01430c04">Contact</a></div></div>
+</footer>
+
+<!-- MODAL CONTACT -->
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="mbox">
+    <button class="mc" onclick="closeModal()">×</button>
+    <div id="mform">
+      <h3>Démarrer avec LEX</h3>
+      <p id="mplan-desc">Accès immédiat · Essai 30 jours pilote gratuit · Puis abonnement mensuel sans engagement.</p>
+      <input class="fi" id="fname" type="text" placeholder="Prénom et Nom *"/>
+      <input class="fi" id="femail" type="email" placeholder="Email professionnel *"/>
+      <input class="fi" id="fcabinet" type="text" placeholder="Cabinet / Organisation *"/>
+      <select class="fi" id="fplan" style="appearance:none">
+        <option value="starter">Plan Starter — 199€/mois</option>
+        <option value="pro">Plan Pro — 499€/mois</option>
+        <option value="cabinet">Plan Cabinet — 999€/mois</option>
+        <option value="pilote">Accès Pilote Gratuit (30 jours)</option>
+      </select>
+      <input class="fi" id="fcode" type="text" placeholder="Code promo (ex: LEXFONDATEUR)"/>
+      <div class="fs">
+        <button class="can" onclick="closeModal()">Annuler</button>
+        <button class="sub" onclick="submitForm()">Confirmer l'accès →</button>
+      </div>
+    </div>
+    <div class="ty" id="mty">
+      <div class="ic">✅</div>
+      <h4>Demande envoyée !</h4>
+      <p>Vous recevrez votre lien d'accès sous 24h à l'adresse indiquée.<br/><br/>En attendant, votre contrat pilote est disponible dans les fichiers téléchargés.</p>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const plans = {starter:"Plan Starter — 199€/mois",pro:"Plan Pro — 499€/mois",cabinet:"Plan Cabinet — 999€/mois"};
+function openModal(plan){
+  document.getElementById("modal").classList.add("open");
+  document.getElementById("fplan").value = plan || "starter";
+  const d = document.getElementById("mplan-desc");
+  d.textContent = plan === "pilote"
+    ? "Accès gratuit 30 jours · Aucune carte requise · Retour qualitatif demandé."
+    : "Accès immédiat après confirmation · Sans engagement · Annulation à tout moment.";
+  document.getElementById("mform").style.display = "block";
+  document.getElementById("mty").style.display = "none";
+}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+function submitForm(){
+  const n=document.getElementById("fname").value;
+  const e=document.getElementById("femail").value;
+  const c=document.getElementById("fcabinet").value;
+  if(!n||!e||!c){alert("Merci de remplir tous les champs obligatoires.");return;}
+  document.getElementById("mform").style.display="none";
+  documen
