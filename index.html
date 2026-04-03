@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr" id="html-root">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>LEX GLOBAL AI — Plateforme Juridique Universelle</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0C1A2E;--gold:#C4A050;--gl:#E8C97A;--cream:#F5F0E8;--dark:#080C12;--text:#2C2C2C;--muted:#6B6B6B}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+.hero{min-height:100vh;background:var(--navy);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(196,160,80,.08) 0%,transparent 70%)}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(196,160,80,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(196,160,80,.04) 1px,transparent 1px);background-size:60px 60px}
+nav{position:relative;z-index:10;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(196,160,80,.12);flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.lt{font-family:'Playfair Display',serif;font-size:16px;color:#F0EAD6;letter-spacing:.06em}
+.ls{font-size:8px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lang-sel{display:flex;gap:3px;flex-wrap:wrap}
+.lb{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:5px;color:rgba(240,234,214,.5);font-size:9px;font-weight:700;padding:4px 7px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;letter-spacing:.04em}
+.lb:hover{background:rgba(196,160,80,.15);color:var(--gold)}
+.lb.on{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.nc{background:var(--gold);color:var(--navy);padding:9px 18px;border-radius:7px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s;white-space:nowrap}.nc:hover{background:var(--gl)}
+.hc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 32px;position:relative;z-index:2}
+.hb{display:inline-flex;align-items:center;gap:8px;background:rgba(196,160,80,.1);border:1px solid rgba(196,160,80,.3);border-radius:20px;padding:6px 16px;margin-bottom:26px;font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.dot{width:6px;height:6px;border-radius:50%;background:#6BCB77;box-shadow:0 0 8px #6BCB77;display:inline-block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,64px);color:#F0EAD6;font-weight:400;line-height:1.1;margin-bottom:12px}
+h1 em{color:var(--gold);font-style:italic}
+.hs{font-size:clamp(13px,1.6vw,17px);color:rgba(240,234,214,.55);max-width:600px;line-height:1.7;margin-bottom:40px;font-weight:300}
+.hca{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.bp{background:linear-gradient(135deg,var(--gold),#8B6914);color:var(--navy);padding:13px 30px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(196,160,80,.3);display:inline-block}.bp:hover{transform:translateY(-2px)}
+.bs{background:rgba(240,234,214,.06);color:#F0EAD6;padding:13px 30px;border-radius:10px;font-size:13px;font-weight:500;text-decoration:none;transition:all .25s;border:1px solid rgba(240,234,214,.2);display:inline-block}.bs:hover{background:rgba(240,234,214,.12)}
+.hst{display:flex;gap:36px;justify-content:center;padding-top:36px;border-top:1px solid rgba(196,160,80,.1);flex-wrap:wrap}
+.sn{font-family:'Playfair Display',serif;font-size:30px;color:var(--gold);display:block}
+.sl{font-size:10px;color:rgba(240,234,214,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+/* AGENTS */
+.agents-section{background:var(--navy);padding:72px 32px}
+.sec-hd{max-width:1100px;margin:0 auto;text-align:center;margin-bottom:44px}
+.slb{font-size:10px;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px;display:block}
+.st{font-family:'Playfair Display',serif;font-size:clamp(22px,3.2vw,40px);line-height:1.2;margin-bottom:10px}
+.st em{font-style:italic;color:var(--gold)}
+.st-w{color:#F0EAD6}.st-d{color:var(--navy)}
+.agents-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;max-width:1100px;margin:0 auto}
+.ac{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;transition:all .25s}
+.ac:hover{transform:translateY(-3px);border-color:rgba(196,160,80,.4)}
+.ac-img{width:100%;height:100px;object-fit:cover;filter:brightness(.72) saturate(.75);transition:filter .3s;background:#1a2438}
+.ac:hover .ac-img{filter:brightness(.88) saturate(1)}
+.ac-body{padding:10px 12px 13px}
+.cat-badge{display:inline-block;font-size:8px;padding:2px 6px;border-radius:5px;margin-bottom:5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ci{background:rgba(74,158,219,.2);color:#6BB8F0}
+.ca{background:rgba(196,160,80,.2);color:var(--gl)}
+.cf{background:rgba(107,203,119,.2);color:#8EDD96}
+.cp{background:rgba(239,68,68,.2);color:#F87171}
+.cs{background:rgba(168,85,247,.2);color:#C084FC}
+.cd{background:rgba(20,184,166,.2);color:#2DD4BF}
+.an{font-size:11px;font-weight:600;color:#F0EAD6;margin-bottom:3px;line-height:1.3}
+.ad{font-size:9px;color:rgba(240,234,214,.38);line-height:1.5}
+/* DEMO */
+.demo-section{background:var(--dark);padding:72px 32px}
+.demo-wrap{max-width:780px;margin:0 auto}
+.demo-box{background:rgba(255,255,255,.03);border:1px solid rgba(196,160,80,.18);border-radius:14px;padding:24px;margin-top:32px}
+.pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:6px 12px;color:rgba(240,234,214,.55);font-size:11px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;outline:none}
+.pill:hover,.pill.on{background:rgba(196,160,80,.15);border-color:var(--gold);color:var(--gold)}
+.demo-ta{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:12px 14px;color:#E0D8C8;font-size:13px;font-family:'DM Sans',sans-serif;resize:vertical;min-height:80px;margin-bottom:12px;transition:border .2s}
+.demo-ta:focus{outline:none;border-color:rgba(196,160,80,.45)}
+.demo-btn{background:linear-gradient(135deg,var(--gold),#8B6914);border:none;color:var(--navy);padding:11px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.demo-btn:hover{transform:translateY(-1px)}
+#demoOut{margin-top:18px;display:none;background:rgba(255,255,255,.03);border-radius:9px;padding:18px;border:1px solid rgba(196,160,80,.12)}
+.rb{margin-bottom:14px}
+.rt{font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.rc{font-size:12px;color:rgba(240,234,214,.75);line-height:1.8;padding-left:10px;border-left:2px solid rgba(196,160,80,.25)}
+.ln{margin-top:14px;padding:9px 13px;background:rgba(196,160,80,.06);border-left:3px solid var(--gold);border-radius:0 7px 7px 0;font-size:10px;color:rgba(196,160,80,.65);font-style:italic}
+/* PRICING */
+.pricing-section{padding:72px 32px;background:var(--cream)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:920px;margin:44px auto 0}
+.pc{background:#fff;border:1px solid rgba(12,26,46,.1);border-radius:14px;overflow:hidden;transition:all .25s;position:relative}
+.pc:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(12,26,46,.1)}
+.pc.ft{background:var(--navy);border-color:var(--gold)}
+.pc-img{width:100%;height:110px;object-fit:cover;filter:brightness(.82);background:#e0d8cc}
+.fb{position:absolute;top:118px;right:10px;background:var(--gold);color:var(--navy);font-size:8px;font-weight:700;padding:2px 7px;border-radius:6px}
+.pc-body{padding:18px 20px 20px}
+.pn{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;color:var(--gold)}
+.pp{font-family:'Playfair Display',serif;font-size:34px;color:var(--navy);line-height:1}
+.pc.ft .pp{color:#F0EAD6}
+.pp span{font-size:12px;font-weight:400;color:var(--muted)}
+.pc.ft .pp span{color:rgba(240,234,214,.45)}
+.pd{font-size:11px;color:var(--muted);margin:7px 0 14px;line-height:1.5}
+.pc.ft .pd{color:rgba(240,234,214,.5)}
+.pf{list-style:none;margin-bottom:18px;display:flex;flex-direction:column;gap:6px}
+.pf li{display:flex;gap:7px;font-size:11px;color:var(--text);align-items:flex-start}
+.pc.ft .pf li{color:rgba(240,234,214,.8)}
+.pf li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.pb{display:block;text-align:center;padding:10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(12,26,46,.08);color:var(--navy);border:1px solid rgba(12,26,46,.15)}
+.pc.ft .pb{background:var(--gold);color:var(--navy);border:none}
+.pb:hover{transform:translateY(-1px)}
+/* CONTACT */
+.contact-section{background:#EDE8DF;padding:72px 32px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:920px;margin:44px auto 0;align-items:start}
+.ci-h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin-bottom:12px}
+.ci-p{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.c-item{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.c-icon{width:32px;height:32px;border-radius:7px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.c-txt{font-size:12px;color:var(--text)}
+.c-promo{margin-top:18px;padding:12px 16px;background:rgba(196,160,80,.08);border:1px solid rgba(196,160,80,.22);border-radius:9px}
+.c-promo-t{font-size:9px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.c-promo-d{font-size:11px;color:var(--muted)}
+.c-promo-code{font-size:14px;font-weight:700;color:var(--gold);margin-top:3px}
+.cf-box{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(12,26,46,.08);box-shadow:0 4px 18px rgba(12,26,46,.06)}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:9px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.09em;margin-bottom:4px}
+.fg input,.fg textarea,.fg select{width:100%;background:#F8F5F0;border:1px solid rgba(12,26,46,.12);border-radius:7px;padding:9px 12px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text);transition:border .2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--gold)}
+.fg textarea{min-height:80px;resize:vertical}
+.f-submit{width:100%;background:linear-gradient(135deg,var(--gold),#8B6914);border:none;color:var(--navy);padding:12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.f-submit:hover{transform:translateY(-1px)}
+#fOk{display:none;text-align:center;padding:14px}
+#fOk .chk{font-size:38px;margin-bottom:8px}
+#fOk h4{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:6px}
+#fOk p{font-size:11px;color:var(--muted);line-height:1.6}
+/* CTA & FOOTER */
+.cta-s{background:var(--navy);padding:84px 32px;text-align:center;position:relative;overflow:hidden}
+.cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 50% 50%,rgba(196,160,80,.07) 0%,transparent 70%)}
+.cta-s h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,50px);color:#F0EAD6;position:relative;z-index:1;margin-bottom:12px}
+.cta-s h2 em{color:var(--gold);font-style:italic}
+.cta-s p{font-size:13px;color:rgba(240,234,214,.5);margin-bottom:32px;position:relative;z-index:1}
+footer{background:var(--dark);padding:40px 32px}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:24px}
+.ft-brand .fl{font-family:'Playfair Display',serif;font-size:18px;color:rgba(240,234,214,.7)}
+.ft-brand p{font-size:10px;color:rgba(240,234,214,.25);max-width:280px;line-height:1.6;margin-top:7px}
+.ft-col h4{font-size:9px;font-weight:700;color:rgba(240,234,214,.4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.ft-col a{display:block;font-size:11px;color:rgba(240,234,214,.25);text-decoration:none;margin-bottom:6px;transition:color .2s;cursor:pointer}.ft-col a:hover{color:var(--gold)}
+.ft-bot{border-top:1px solid rgba(255,255,255,.05);padding-top:18px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.ft-bot p{font-size:9px;color:rgba(240,234,214,.16);line-height:1.6;max-width:480px}
+/* MODALS */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:3000;align-items:flex-start;justify-content:center;overflow-y:auto;padding:28px 16px}
+.modal.open{display:flex}
+.modal-box{background:#fff;border-radius:14px;padding:36px;max-width:700px;width:100%;position:relative;margin:auto}
+.m-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--muted);line-height:1}
+.modal-box h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin-bottom:5px}
+.modal-box h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);margin:18px 0 7px}
+.modal-box p,.modal-box li{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:8px}
+.modal-box ul{padding-left:16px;margin-bottom:8px}
+.m-sub{font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;display:block}
+@media(max-width:768px){
+  nav{padding:12px 16px}
+  .hc{padding:52px 16px}
+  .agents-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hst{gap:16px}
+  .agents-section,.demo-section,.pricing-section,.contact-section,.cta-s{padding:52px 16px}
+  footer{padding:32px 16px}
+  .ft-top{flex-direction:column;gap:18px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="grid-bg"></div>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">⚖</div>
+      <div><div class="lt">LEX GLOBAL AI</div><div class="ls">Plateforme Juridique Universelle</div></div>
+    </a>
+    <div class="nav-right">
+      <div class="lang-sel">
+        <button class="lb on" onclick="L('fr')">FR</button>
+        <button class="lb" onclick="L('en')">EN</button>
+        <button class="lb" onclick="L('es')">ES</button>
+        <button class="lb" onclick="L('ar')">AR</button>
+        <button class="lb" onclick="L('pt')">PT</button>
+        <button class="lb" onclick="L('ru')">RU</button>
+        <button class="lb" onclick="L('uk')">UK</button>
+        <button class="lb" onclick="L('zh')">ZH</button>
+        <button class="lb" onclick="L('ja')">JA</button>
+      </div>
+      <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" class="nc" target="_blank" id="navCta">Démarrer — 199€/mois</a>
+    </div>
+  </nav>
+
+  <div class="hc">
+    <div class="hb"><span class="dot"></span><span id="badge">17 Agents Actifs · 190 Pays · Droit International</span></div>
+    <h1 id="hero-h1">La <em>plateforme juridique</em><br/>universelle, enfin créée</h1>
+    <p class="hs" id="hero-sub">17 agents IA spécialisés couvrant toutes les branches du droit. Immigration, affaires internationales, famille, pénal, numérique — analyses complètes en 30 secondes, sources citées.</p>
+    <div class="hca">
+      <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" class="bp" target="_blank" id="btn1">Commencer l'essai gratuit</a>
+      <a href="#demo" class="bs" id="btn2">Voir une démo live</a>
+    </div>
+    <div class="hst">
+      <div><span class="sn">17</span><div class="sl" id="s1">Agents spécialisés</div></div>
+      <div><span class="sn">30s</span><div class="sl" id="s2">Analyse complète</div></div>
+      <div><span class="sn">190</span><div class="sl" id="s3">Pays couverts</div></div>
+      <div><span class="sn">100%</span><div class="sl" id="s4">Sources citées</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="agents" class="agents-section">
+  <div class="sec-hd">
+    <span class="slb">17 agents spécialisés</span>
+    <h2 class="st st-w">Chaque branche du droit a son <em>expert dédié</em></h2>
+  </div>
+  <div class="agents-grid">
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&h=200&fit=crop&q=65" alt="Asile" loading="lazy"/><div class="ac-body"><span class="cat-badge ci">Immigration</span><div class="an">Agent Asile</div><div class="ad">OFPRA · CNDA · Convention Genève</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&h=200&fit=crop&q=65" alt="OQTF" loading="lazy"/><div class="ac-body"><span class="cat-badge ci">Immigration</span><div class="an">Agent OQTF</div><div class="ad">Contestation · Recours · Vices</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=320&h=200&fit=crop&q=65" alt="CEDH" loading="lazy"/><div class="ac-body"><span class="cat-badge ci">Immigration</span><div class="an">Agent CEDH</div><div class="ad">Violations · Strasbourg · 10K+ arrêts</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?w=320&h=200&fit=crop&q=65" alt="Régularisation" loading="lazy"/><div class="ac-body"><span class="cat-badge ci">Immigration</span><div class="an">Régularisation</div><div class="ad">VPF · MNA · Admission exceptionnelle</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=320&h=200&fit=crop&q=65" alt="ONG" loading="lazy"/><div class="ac-body"><span class="cat-badge ci">Immigration</span><div class="an">Agent ONG</div><div class="ad">Orientation · Réseau · Urgences</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=320&h=200&fit=crop&q=65" alt="Affaires" loading="lazy"/><div class="ac-body"><span class="cat-badge ca">Affaires</span><div class="an">Affaires Internationales</div><div class="ad">OHADA · Arbitrage CCI · Contrats</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=320&h=200&fit=crop&q=65" alt="Sociétés" loading="lazy"/><div class="ac-body"><span class="cat-badge ca">Affaires</span><div class="an">Droit des Sociétés</div><div class="ad">Création · Fusion · Gouvernance</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=320&h=200&fit=crop&q=65" alt="Fiscal" loading="lazy"/><div class="ac-body"><span class="cat-badge ca">Affaires</span><div class="an">Droit Fiscal International</div><div class="ad">Conventions · Transfer pricing</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=320&h=200&fit=crop&q=65" alt="Bancaire" loading="lazy"/><div class="ac-body"><span class="cat-badge ca">Affaires</span><div class="an">Droit Bancaire</div><div class="ad">Contrats · Régulation · Compliance</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=320&h=200&fit=crop&q=65" alt="Travail" loading="lazy"/><div class="ac-body"><span class="cat-badge cs">Social</span><div class="an">Droit du Travail</div><div class="ad">Licenciement · Discrimination · CCN</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=320&h=200&fit=crop&q=65" alt="Famille" loading="lazy"/><div class="ac-body"><span class="cat-badge cf">Famille</span><div class="an">Droit de la Famille</div><div class="ad">Divorce · Garde · Succession</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=320&h=200&fit=crop&q=65" alt="Immobilier" loading="lazy"/><div class="ac-body"><span class="cat-badge cf">Famille</span><div class="an">Droit Immobilier</div><div class="ad">Baux · Propriété · Urbanisme</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=320&h=200&fit=crop&q=65" alt="Pénal" loading="lazy"/><div class="ac-body"><span class="cat-badge cp">Pénal</span><div class="an">Pénal International</div><div class="ad">CPI · Extradition · Entraide</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=320&h=200&fit=crop&q=65" alt="Administratif" loading="lazy"/><div class="ac-body"><span class="cat-badge cp">Administratif</span><div class="an">Droit Administratif</div><div class="ad">Recours · Marchés publics</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=320&h=200&fit=crop&q=65" alt="Environnement" loading="lazy"/><div class="ac-body"><span class="cat-badge cs">Environnement</span><div class="an">Droit Environnemental</div><div class="ad">Compliance · ESG · Accords climat</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=320&h=200&fit=crop&q=65" alt="Numérique" loading="lazy"/><div class="ac-body"><span class="cat-badge cd">Numérique</span><div class="an">Droit du Numérique</div><div class="ad">RGPD · IA Act · Cybersécurité</div></div></div>
+    <div class="ac"><img class="ac-img" src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=320&h=200&fit=crop&q=65" alt="Humanitaire" loading="lazy"/><div class="ac-body"><span class="cat-badge cs">Humanitaire</span><div class="an">Droit Humanitaire</div><div class="ad">DIH · ONG · Zones de conflit · CIJ</div></div></div>
+  </div>
+</section>
+
+<section id="demo" class="demo-section">
+  <div class="demo-wrap">
+    <div style="text-align:center">
+      <span class="slb" style="color:var(--gold)">Démo live</span>
+      <h2 class="st st-w" id="demo-title">Testez <em>un agent maintenant</em></h2>
+    </div>
+    <div class="demo-box">
+      <div class="pills">
+        <button class="pill on" onclick="setAgent(this,'asile')">Asile</button>
+        <button class="pill" onclick="setAgent(this,'oqtf')">OQTF</button>
+        <button class="pill" onclick="setAgent(this,'cedh')">CEDH</button>
+        <button class="pill" onclick="setAgent(this,'affaires')">Affaires Intl</button>
+        <button class="pill" onclick="setAgent(this,'travail')">Travail</button>
+        <button class="pill" onclick="setAgent(this,'famille')">Famille</button>
+        <button class="pill" onclick="setAgent(this,'fiscal')">Fiscal</button>
+        <button class="pill" onclick="setAgent(this,'numerique')">Numérique</button>
+      </div>
+      <textarea class="demo-ta" id="demoTA" placeholder="Décrivez la situation juridique en langage naturel..."></textarea>
+      <button class="demo-btn" onclick="analyze()">Analyser avec LEX ⚡</button>
+      <div id="demoOut">
+        <div id="demoBlocks"></div>
+        <div class="ln">⚠️ Support documentaire uniquement. Ne constitue pas un avis juridique. À valider par un professionnel du droit qualifié.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing-section">
+  <div style="max-width:920px;margin:0 auto;text-align:center">
+    <span class="slb">Tarifs transparents</span>
+    <h2 class="st st-d">Investissement. <em>Pas une dépense.</em></h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="pc">
+      <img class="pc-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=220&fit=crop&q=65" alt="Starter" loading="lazy"/>
+      <div class="pc-body">
+        <div class="pn">Starter</div><div class="pp">199<span>€/mois</span></div>
+        <div class="pd">Avocats solo et jeunes cabinets</div>
+        <ul class="pf"><li>1 utilisateur</li><li>100 analyses/mois</li><li>17 agents IA</li><li>Export PDF</li><li>Support email 48h</li></ul>
+        <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" class="pb" target="_blank">Démarrer — 199€/mois</a>
+      </div>
+    </div>
+    <div class="pc ft">
+      <img class="pc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=220&fit=crop&q=65" alt="Pro" loading="lazy"/>
+      <div class="fb">POPULAIRE</div>
+      <div class="pc-body">
+        <div class="pn">Pro</div><div class="pp" style="color:#F0EAD6">499<span>€/mois</span></div>
+        <div class="pd">Cabinets établis et ONG</div>
+        <ul class="pf"><li>3 utilisateurs</li><li>Analyses illimitées</li><li>Alertes jurisprudence</li><li>Accès API</li><li>Support 24h</li></ul>
+        <a href="https://buy.stripe.com/cNicN41GQ2U68Ql60MeUU02" class="pb" target="_blank">Démarrer — 499€/mois</a>
+      </div>
+    </div>
+    <div class="pc">
+      <img class="pc-img" src="https://images.unsplash.com/photo-1497215842964-222b430dc094?w=500&h=220&fit=crop&q=65" alt="Cabinet" loading="lazy"/>
+      <div class="pc-body">
+        <div class="pn">Cabinet</div><div class="pp">999<span>€/mois</span></div>
+        <div class="pd">Grandes structures et institutions</div>
+        <ul class="pf"><li>10 utilisateurs</li><li>Analyses illimitées</li><li>Onboarding dédié</li><li>SLA 24h</li><li>Formations incluses</li></ul>
+        <a href="https://buy.stripe.com/8x2bJ01GQbqC9Up2OAeUU03" class="pb" target="_blank">Démarrer — 999€/mois</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:22px">
+    <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(196,160,80,.08);border:1px solid rgba(196,160,80,.2);border-radius:18px;padding:9px 20px;font-size:12px;color:var(--muted)">
+      <strong style="color:var(--navy)">Early Adopter :</strong> −50% pendant 3 mois · Code <strong style="color:var(--gold)">LEXFONDATEUR</strong>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div style="max-width:920px;margin:0 auto;text-align:center">
+    <span class="slb">Contact</span>
+    <h2 class="st st-d" id="contact-title">Parlons de <em>votre projet</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <h3 class="ci-h3">Nous sommes à votre écoute</h3>
+      <p class="ci-p">Accès pilote, question technique ou partenariat — réponse sous 24h.</p>
+      <div class="c-item"><div class="c-icon">✉️</div><div class="c-txt" style="user-select:all;font-weight:600">lexglobalai [at] gmail.com</div></div>
+      <div class="c-item"><div class="c-icon">🌍</div><div class="c-txt">Fondé aux Mureaux, France · 190 pays</div></div>
+      <div class="c-item"><div class="c-icon">⚖️</div><div class="c-txt">Fondateur : Venceslas David Endene Moudoumbou</div></div>
+      <div class="c-promo">
+        <div class="c-promo-t">Early Adopter</div>
+        <div class="c-promo-d">−50% pendant 3 mois pour les 10 premiers</div>
+        <div class="c-promo-code">Code : LEXFONDATEUR</div>
+      </div>
+    </div>
+    <div class="cf-box">
+      <div id="fForm">
+        <div class="fg"><label>Nom complet *</label><input type="text" id="fName" placeholder="Maître Jean Dupont"/></div>
+        <div class="fg"><label>Email *</label><input type="email" id="fEmail" placeholder="contact@cabinet.fr"/></div>
+        <div class="fg"><label>Structure</label><input type="text" id="fCabinet" placeholder="Cabinet Dupont"/></div>
+        <div class="fg"><label>Sujet</label>
+          <select id="fSub">
+            <option>Accès pilote gratuit</option>
+            <option>Plan Starter 199€</option>
+            <option>Plan Pro 499€</option>
+            <option>Plan Cabinet 999€</option>
+            <option>Partenariat institutionnel</option>
+            <option>Question technique</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea id="fMsg" placeholder="Votre message..."></textarea></div>
+        <button class="f-submit" onclick="sendForm()">Envoyer →</button>
+      </div>
+      <div id="fOk">
+        <div class="chk">✅</div>
+        <h4>Message envoyé !</h4>
+        <p>Réponse sous 24h à votre adresse email.</p>
+        <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" class="bp" target="_blank" style="margin-top:12px;font-size:11px;padding:10px 20px;display:inline-block">Démarrer maintenant</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <h2 id="cta-h">L'intelligence juridique<br/><em>au service de tous.</em></h2>
+  <p id="cta-p">17 agents spécialisés · 190 pays · Analyses en 30 secondes</p>
+  <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" class="bp" target="_blank" style="font-size:14px;padding:16px 38px;position:relative;z-index:1" id="cta-btn">Démarrer maintenant — 199€/mois</a>
+  <div style="margin-top:12px;font-size:10px;color:rgba(240,234,214,.25);position:relative;z-index:1">Sans engagement · Annulation à tout moment · Support humain inclus</div>
+</section>
+
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <div class="fl">LEX GLOBAL AI ⚖</div>
+      <p>Plateforme d'intelligence juridique universelle francophone. 17 agents IA. Fondée aux Mureaux, France.</p>
+      <p>© 2026 Venceslas David Endene Moudoumbou</p>
+    </div>
+    <div class="ft-col">
+      <h4>Plateforme</h4>
+      <a href="#agents">17 agents IA</a>
+      <a href="#demo">Démo live</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="ft-col">
+      <h4>Légal</h4>
+      <a onclick="openM('mentions')">Mentions légales</a>
+      <a onclick="openM('cgu')">CGU</a>
+      <a onclick="openM('rgpd')">RGPD</a>
+      <a onclick="window.open('https://mail.google.com/mail/?view=cm&to=lexglobalai@gmail.com','_blank')">Contact DPO</a>
+    </div>
+    <div class="ft-col">
+      <h4>Abonnements</h4>
+      <a href="https://buy.stripe.com/fZu14m85eeCO5E94WIeUU01" target="_blank">Starter 199€/mois</a>
+      <a href="https://buy.stripe.com/cNicN41GQ2U68Ql60MeUU02" target="_blank">Pro 499€/mois</a>
+      <a href="https://buy.stripe.com/8x2bJ01GQbqC9Up2OAeUU03" target="_blank">Cabinet 999€/mois</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 LEX GLOBAL AI · Les Mureaux, France</p>
+    <p>LEX GLOBAL AI est un outil d'assistance documentaire. Ses analyses ne constituent pas un avis juridique et ne remplacent pas le conseil d'un avocat qualifié.</p>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div id="mMentions" class="modal" onclick="if(event.target===this)closeM('mentions')">
+  <div class="modal-box">
+    <button class="m-close" onclick="closeM('mentions')">×</button>
+    <h2>Mentions Légales</h2><span class="m-sub">LEX GLOBAL AI</span>
+    <h3>Éditeur</h3><p><strong>Responsable :</strong> Venceslas David Endene Moudoumbou · Les Mureaux, France · lexglobalai [at] gmail.com</p>
+    <h3>Hébergement</h3><p>GitHub Pages — GitHub, Inc. · San Francisco, CA, USA</p>
+    <h3>Propriété intellectuelle</h3><p>Tout le contenu est la propriété exclusive de Venceslas David Endene Moudoumbou. Reproduction interdite sans autorisation écrite.</p>
+    <h3>Limitation de responsabilité</h3><p>LEX GLOBAL AI est un outil d'assistance documentaire. Les analyses ne constituent pas un avis juridique. À valider par un professionnel du droit avant tout usage procédural.</p>
+    <h3>Droit applicable</h3><p>Droit français — compétence des tribunaux français.</p>
+  </div>
+</div>
+
+<div id="mCgu" class="modal" onclick="if(event.target===this)closeM('cgu')">
+  <div class="modal-box">
+    <button class="m-close" onclick="closeM('cgu')">×</button>
+    <h2>Conditions Générales d'Utilisation</h2><span class="m-sub">En vigueur au 1er janvier 2026</span>
+    <h3>Article 1 — Objet</h3><p>Les présentes CGU régissent l'utilisation de la plateforme LEX GLOBAL AI.</p>
+    <h3>Article 2 — Accès</h3><p>Réservé aux professionnels du droit et personnes majeures en cadre professionnel.</p>
+    <h3>Article 3 — Nature du service</h3><p>Service d'assistance documentaire uniquement. Ne constitue pas une consultation juridique. Les analyses doivent être validées par un avocat qualifié avant tout usage procédural.</p>
+    <h3>Article 4 — Abonnements</h3><p>Starter 199€/mois · Pro 499€/mois · Cabinet 999€/mois. Paiement Stripe. Résiliation à tout moment sans frais.</p>
+    <h3>Article 5 — Obligations</h3><ul><li>Utiliser le service dans le respect de la loi</li><li>Ne pas redistribuer les analyses sans autorisation</li><li>Confidentialité des identifiants</li></ul>
+    <h3>Article 6 — Responsabilité</h3><p>L'éditeur ne garantit pas l'exhaustivité des analyses IA. Aucune responsabilité en cas d'usage sans validation par un avocat.</p>
+    <h3>Article 7 — Droit applicable</h3><p>Droit français — tribunaux de Paris.</p>
+  </div>
+</div>
+
+<div id="mRgpd" class="modal" onclick="if(event.target===this)closeM('rgpd')">
+  <div class="modal-box">
+    <button class="m-close" onclick="closeM('rgpd')">×</button>
+    <h2>Politique RGPD</h2><span class="m-sub">Règlement UE 2016/679</span>
+    <h3>Responsable</h3><p>Venceslas David Endene Moudoumbou · Les Mureaux, France</p>
+    <h3>Données collectées</h3><ul><li>Données de compte : nom, email — gestion accès</li><li>Données usage anonymisées — amélioration service</li><li>Paiement géré exclusivement par Stripe</li></ul>
+    <h3>Vos droits</h3><p>Accès · Rectification · Effacement · Portabilité · Opposition. Contact : lexglobalai [at] gmail.com</p>
+    <h3>Cookies</h3><p>Aucun cookie de traçage ou publicitaire.</p>
+    <h3>Réclamations</h3><p>CNIL — cnil.fr</p>
+  </div>
+</div>
+
+<script>
+// ── ANALYSES ─────────────────────────────────────────────────────────────────
+var A = {
+  asile:[
+    {t:'Base légale applicable',c:'Art. 1A(2) Convention de Genève 1951 · Directive 2011/95/UE art. 10(1)(d) · CESEDA L.721-2 · Art. 3 CEDH (protection absolue) · Art. 8 CEDH (vie privée et familiale)'},
+    {t:'Jurisprudence déterminante',c:'CEDH — M.S.S. c. Belgique (2011) · CEDH — Hirsi Jamaa c. Italie (2012) · CJUE — C-199/12 : groupe social · CE — 10e-9e SSR 2019 : charge de la preuve allégée'},
+    {t:'Forces du dossier',c:'Risques de persécution documentés · Présence stable sur le territoire · Liens familiaux établis · Délai OQTF récent — recours suspensif encore possible'},
+    {t:'Plan d\'action — 48h',c:'1. Référé-suspension TA dans délai 15 jours\n2. Mesures provisoires CEDH art. 39\n3. Demande réexamen OFPRA avec nouveaux éléments\n4. Contact Cimade / GISTI / ARDHIS immédiat'}
+  ],
+  oqtf:[
+    {t:'Vices de procédure potentiels',c:'Défaut de motivation (CE 2020) · Non-respect délai départ volontaire · Absence d\'examen situation personnelle · Non-saisine Commission titre de séjour (art. L.432-14 CESEDA)'},
+    {t:'Base légale pour contester',c:'CESEDA art. L.614-1 : recours suspensif · Art. L.721-2 : protection subsidiaire · CEDH art. 8 : vie familiale · Directive Retour 2008/115/CE : proportionnalité'},
+    {t:'Jurisprudence favorable',c:'CE — 11 juin 2021 n°438577 : proportionnalité art. 8 · CEDH — Üner c. Pays-Bas (2006) : critères Boultif · TA Cergy 2023 : annulation défaut examen situation'},
+    {t:'Délais et recours',c:'Délai recours : 15 jours depuis notification · Tribunal administratif compétent · Effet suspensif si recours dans délai · Aide juridictionnelle : demande simultanée possible'}
+  ],
+  cedh:[
+    {t:'Articles potentiellement violés',c:'Art. 3 — Interdiction traitements inhumains (violation absolue, non dérogeable)\nArt. 8 — Vie privée et familiale\nArt. 13 — Droit à un recours effectif\nArt. 5 — Liberté si rétention'},
+    {t:'Arrêts CEDH pertinents',c:'M.S.S. c. Belgique (2011) · Tarakhel c. Suisse (2014) · Paposhvili c. Belgique (2016) · Salah Sheekh c. Pays-Bas (2007)'},
+    {t:'Recevabilité d\'une requête',c:'Délai : 4 mois depuis décision interne définitive · Épuisement voies de recours internes obligatoire · Qualité de victime à démontrer · Préjudice important requis'},
+    {t:'Stratégie recommandée',c:'1. Mesures provisoires art. 39 en urgence (24h si expulsion imminente)\n2. Épuisement recours internes : TA + CAA + CE\n3. Requête CEDH dans délai 4 mois\n4. Saisine Défenseur des Droits'}
+  ],
+  affaires:[
+    {t:'Droit applicable et conventions',c:'Convention de Vienne 1980 (CVIM) si vente internationale · Règlement Rome I sur la loi applicable · Convention New York 1958 sur arbitrage · Acte Uniforme OHADA si parties africaines'},
+    {t:'Jurisprudence arbitrale',c:'CCI — Sentence 15956/2011 : clause compromissoire · CIRDI — Vivendi c. Argentine : protection investissements · CCJA OHADA 2019 : exécution sentence Afrique'},
+    {t:'Risques identifiés',c:'Clause de droit applicable absente ou contestée · Juridiction compétente non déterminée · Risque insolvabilité partenaire · Conformité réglementaire locale à vérifier'},
+    {t:'Recommandations stratégiques',c:'1. Audit contrat : clause arbitrale CCI ou CCJA\n2. Garanties financières : LC documentaire ou garantie bancaire\n3. Due diligence partenaire : registre + bilans\n4. Assurance risque pays si marché émergent'}
+  ],
+  travail:[
+    {t:'Base légale',c:'Code du travail L.1232-1 à L.1237-20 : licenciement · L.1152-1 : harcèlement moral · Convention collective selon code NAF · Accord de branche applicable'},
+    {t:'Jurisprudence Cour de cassation',c:'Soc. 29 mai 2019 n°17-15289 : cause réelle et sérieuse · Soc. 14 avril 2021 : harcèlement moral critères · Soc. 8 sept. 2021 : reclassement obligation de moyens'},
+    {t:'Droits du salarié',c:'Indemnité légale : 1/4 mois/an < 10 ans, 1/3 mois/an > 10 ans · Préavis selon CCN · Indemnité compensatrice congés payés · Recours CPH dans 12 mois'},
+    {t:'Procédure recommandée',c:'1. Saisine Conseil Prud\'hommes — section compétente\n2. Bureau de conciliation obligatoire\n3. Bureau de jugement si échec\n4. Exécution provisoire possible'}
+  ],
+  famille:[
+    {t:'Cadre légal',c:'Code civil art. 229 à 309 : divorce · Art. 371-1 à 387 : autorité parentale · Art. 271 à 280 : prestation compensatoire · Art. 203 : obligations alimentaires'},
+    {t:'Jurisprudence',c:'Civ. 1re — 6 mars 2019 : intérêt supérieur enfant · CA Paris 2022 : résidence alternée critères · Civ. 1re — 14 déc. 2022 : prestation compensatoire calcul'},
+    {t:'Options procédurales',c:'Divorce consentement mutuel : acte d\'avocat sans juge · Divorce contentieux : TJ délai 12-24 mois · Ordonnance de protection si violence · Médiation familiale préalable recommandée'},
+    {t:'Recommandations',c:'1. État des lieux patrimoine commun\n2. Accord parental sur résidence et pension\n3. Calcul prestation compensatoire : revenus, patrimoine, durée mariage\n4. Table référence ONPE pour pension alimentaire'}
+  ],
+  fiscal:[
+    {t:'Conventions fiscales applicables',c:'Convention franco-suisse 1966 modifiée 2010 · Convention franco-camerounaise 1976 · Modèle OCDE 2017 · Directive mère-filiale 2011/96/UE si EU'},
+    {t:'Qualification fiscale',c:'Dividendes : retenue 15% sauf convention (réduit à 5% ou 0% selon participation) · Plus-values : État de résidence sauf exceptions · Intérêts : article 11 modèle OCDE'},
+    {t:'Risques',c:'Abus de droit fiscal (art. L.64 LPF) · Acte anormal de gestion · Prix de transfert (art. 57 CGI) · Substance économique insuffisante (BEPS Action 6)'},
+    {t:'Optimisation légale',c:'1. Vérifier taux conventionnel — certificat de résidence\n2. Directive mère-filiale : exonération dividendes si > 10% participation\n3. Documentation prix de transfert obligatoire\n4. Ruling fiscal préventif pour sécurité juridique'}
+  ],
+  numerique:[
+    {t:'Réglementation applicable',c:'RGPD — Règlement UE 2016/679 · DSA — Règlement UE 2022/2065 · IA Act — Règlement UE 2024/1689 · LCEN 2004 · eIDAS 2 : identité numérique'},
+    {t:'Obligations légales',c:'Notification violation données : 72h CNIL + personnes concernées · DPO obligatoire si traitement grande échelle · AIPD requise si traitement à risque · Registre traitements obligatoire'},
+    {t:'Risques de sanctions',c:'RGPD : jusqu\'à 4% CA mondial ou 20M€ · DSA : 6% CA mondial · IA Act : jusqu\'à 35M€ ou 7% CA · Sanctions pénales LCEN · Mise en demeure CNIL habituelle'},
+    {t:'Actions correctives',c:'1. Audit RGPD complet — cartographie données\n2. Mise à jour politique confidentialité\n3. Évaluation risques IA si système IA utilisé\n4. Formation équipes\n5. Notification CNIL si violation suspectée'}
+  ]
+};
+
+var curAgent = 'asile';
+
+function setAgent(btn, ag) {
+  document.querySelectorAll('.pill').forEach(function(b){b.classList.remove('on')});
+  btn.classList.add('on');
+  curAgent = ag;
+  document.getElementById('demoOut').style.display = 'none';
+}
+
+function analyze() {
+  var inp = document.getElementById('demoTA').value.trim();
+  if (!inp) { alert('Veuillez décrire la situation juridique.'); return; }
+  var data = A[curAgent];
+  if (!data) return;
+  var html = '<div style="font-size:10px;color:rgba(240,234,214,.35);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px">Analyse générée — ' + curAgent.toUpperCase() + '</div>';
+  for (var i = 0; i < data.length; i++) {
+    html += '<div class="rb"><div class="rt">' + data[i].t + '</div><div class="rc">' + data[i].c.replace(/\n/g,'<br/>') + '</div></div>';
+  }
+  document.getElementById('demoBlocks').innerHTML = html;
+  document.getElementById('demoOut').style.display = 'block';
+  document.getElementById('demoOut').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ── CONTACT FORM ─────────────────────────────────────────────────────────────
+function sendForm() {
+  var name = document.getElementById('fName').value.trim();
+  var email = document.getElementById('fEmail').value.trim();
+  if (!name || !email) { alert('Veuillez remplir votre nom et email.'); return; }
+  var sub = document.getElementById('fSub').value;
+  var cab = document.getElementById('fCabinet').value;
+  var msg = document.getElementById('fMsg').value;
+  var body = 'Nom: ' + name + '\nEmail: ' + email + '\nStructure: ' + cab + '\nSujet: ' + sub + '\n\nMessage:\n' + msg;
+  var url = 'https://mail.google.com/mail/?view=cm&to=lexglobalai@gmail.com&su=' + encodeURIComponent('[LEX GLOBAL AI] ' + sub) + '&body=' + encodeURIComponent(body);
+  window.open(url, '_blank');
+  document.getElementById('fForm').style.display = 'none';
+  document.getElementById('fOk').style.display = 'block';
+}
+
+// ── MODALS ───────────────────────────────────────────────────────────────────
+function openM(t) {
+  var ids = {mentions:'mMentions', cgu:'mCgu', rgpd:'mRgpd'};
+  document.getElementById(ids[t]).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeM(t) {
+  var ids = {mentions:'mMentions', cgu:'mCgu', rgpd:'mRgpd'};
+  document.getElementById(ids[t]).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); });
+    document.body.style.overflow = '';
+  }
+});
+
+// ── MULTILINGUAL ─────────────────────────────────────────────────────────────
+var T = {
+  fr:{
+    navCta:'Démarrer — 199€/mois',
+    badge:'17 Agents Actifs · 190 Pays · Droit International',
+    h1:'La <em>plateforme juridique</em><br/>universelle, enfin créée',
+    sub:'17 agents IA spécialisés couvrant toutes les branches du droit. Immigration, affaires internationales, famille, pénal, numérique — analyses complètes en 30 secondes, sources citées.',
+    b1:'Commencer l\'essai gratuit', b2:'Voir une démo live',
+    s1:'Agents spécialisés', s2:'Analyse complète', s3:'Pays couverts', s4:'Sources citées',
+    demoTitle:'Testez <em>un agent maintenant</em>',
+    contactTitle:'Parlons de <em>votre projet</em>',
+    ctaH:'L\'intelligence juridique<br/><em>au service de tous.</em>',
+    ctaP:'17 agents spécialisés · 190 pays · Analyses en 30 secondes',
+    ctaBtn:'Démarrer maintenant — 199€/mois',
+    demoBtn:'Analyser avec LEX ⚡'
+  },
+  en:{
+    navCta:'Start — €199/month',
+    badge:'17 Active Agents · 190 Countries · International Law',
+    h1:'The <em>universal legal</em><br/>platform, finally here',
+    sub:'17 specialized AI agents covering all branches of law. Immigration, international business, family, criminal, digital — complete analysis in 30 seconds, sources cited.',
+    b1:'Start free trial', b2:'See live demo',
+    s1:'Specialized agents', s2:'Complete analysis', s3:'Countries covered', s4:'Sources cited',
+    demoTitle:'Test <em>an agent now</em>',
+    contactTitle:'Let\'s talk about <em>your project</em>',
+    ctaH:'Legal intelligence<br/><em>for everyone.</em>',
+    ctaP:'17 specialized agents · 190 countries · Analysis in 30 seconds',
+    ctaBtn:'Start now — €199/month',
+    demoBtn:'Analyze with LEX ⚡'
+  },
+  es:{
+    navCta:'Empezar — 199€/mes',
+    badge:'17 Agentes Activos · 190 Países · Derecho Internacional',
+    h1:'La plataforma <em>jurídica universal</em><br/>finalmente creada',
+    sub:'17 agentes IA especializados que cubren todas las ramas del derecho. Inmigración, negocios internacionales, familia, penal, digital — análisis completo en 30 segundos.',
+    b1:'Comenzar prueba gratuita', b2:'Ver demo en vivo',
+    s1:'Agentes especializados', s2:'Análisis completo', s3:'Países cubiertos', s4:'Fuentes citadas',
+    demoTitle:'Pruebe <em>un agente ahora</em>',
+    contactTitle:'Hablemos de <em>su proyecto</em>',
+    ctaH:'Inteligencia jurídica<br/><em>al servicio de todos.</em>',
+    ctaP:'17 agentes especializados · 190 países · Análisis en 30 segundos',
+    ctaBtn:'Empezar ahora — 199€/mes',
+    demoBtn:'Analizar con LEX ⚡'
+  },
+  ar:{
+    navCta:'ابدأ — 199€/شهر',
+    badge:'17 وكيل نشط · 190 دولة · القانون الدولي',
+    h1:'منصة <em>قانونية عالمية</em><br/>أُنشئت أخيراً',
+    sub:'17 وكيل ذكاء اصطناعي متخصص يغطي جميع فروع القانون. الهجرة، الأعمال الدولية، الأسرة، الجنائي، الرقمي — تحليل كامل في 30 ثانية.',
+    b1:'ابدأ التجربة المجانية', b2:'شاهد العرض',
+    s1:'وكلاء متخصصون', s2:'تحليل كامل', s3:'دول مشمولة', s4:'مصادر مذكورة',
+    demoTitle:'اختبر <em>وكيلاً الآن</em>',
+    contactTitle:'لنتحدث عن <em>مشروعك</em>',
+    ctaH:'الذكاء القانوني<br/><em>في خدمة الجميع.</em>',
+    ctaP:'17 وكيل متخصص · 190 دولة · تحليل في 30 ثانية',
+    ctaBtn:'ابدأ الآن — 199€/شهر',
+    demoBtn:'تحليل مع LEX ⚡'
+  },
+  pt:{
+    navCta:'Começar — 199€/mês',
+    badge:'17 Agentes Ativos · 190 Países · Direito Internacional',
+    h1:'A plataforma <em>jurídica universal</em><br/>finalmente criada',
+    sub:'17 agentes IA especializados cobrindo todos os ramos do direito. Imigração, negócios internacionais, família, criminal, digital — análise completa em 30 segundos.',
+    b1:'Começar teste gratuito', b2:'Ver demo',
+    s1:'Agentes especializados', s2:'Análise completa', s3:'Países cobertos', s4:'Fontes citadas',
+    demoTitle:'Teste <em>um agente agora</em>',
+    contactTitle:'Vamos falar sobre <em>seu projeto</em>',
+    ctaH:'Inteligência jurídica<br/><em>ao serviço de todos.</em>',
+    ctaP:'17 agentes especializados · 190 países · Análise em 30 segundos',
+    ctaBtn:'Começar agora — 199€/mês',
+    demoBtn:'Analisar com LEX ⚡'
+  },
+  ru:{
+    navCta:'Начать — 199€/мес',
+    badge:'17 Активных Агентов · 190 Стран · Международное Право',
+    h1:'Универсальная <em>юридическая платформа</em><br/>наконец создана',
+    sub:'17 специализированных агентов ИИ охватывают все отрасли права. Иммиграция, международный бизнес, семья, уголовное, цифровое — полный анализ за 30 секунд.',
+    b1:'Начать бесплатный период', b2:'Смотреть демо',
+    s1:'Специализированных агентов', s2:'Полный анализ', s3:'Охваченных стран', s4:'Цитируемых источников',
+    demoTitle:'Протестируйте <em>агента сейчас</em>',
+    contactTitle:'Поговорим о <em>вашем проекте</em>',
+    ctaH:'Юридический интеллект<br/><em>для всех.</em>',
+    ctaP:'17 специализированных агентов · 190 стран · Анализ за 30 секунд',
+    ctaBtn:'Начать сейчас — 199€/мес',
+    demoBtn:'Анализировать с LEX ⚡'
+  },
+  uk:{
+    navCta:'Почати — 199€/міс',
+    badge:'17 Активних Агентів · 190 Країн · Міжнародне Право',
+    h1:'Універсальна <em>юридична платформа</em><br/>нарешті створена',
+    sub:'17 спеціалізованих агентів ШІ охоплюють усі галузі права. Імміграція, міжнародний бізнес, сімʼя, кримінальне, цифрове — повний аналіз за 30 секунд.',
+    b1:'Почати безкоштовний період', b2:'Дивитися демо',
+    s1:'Спеціалізованих агентів', s2:'Повний аналіз', s3:'Охоплених країн', s4:'Джерел цитовано',
+    demoTitle:'Протестуйте <em>агента зараз</em>',
+    contactTitle:'Поговоримо про <em>ваш проект</em>',
+    ctaH:'Юридичний інтелект<br/><em>для всіх.</em>',
+    ctaP:'17 спеціалізованих агентів · 190 країн · Аналіз за 30 секунд',
+    ctaBtn:'Почати зараз — 199€/міс',
+    demoBtn:'Аналізувати з LEX ⚡'
+  },
+  zh:{
+    navCta:'开始 — 199€/月',
+    badge:'17个活跃代理 · 190个国家 · 国际法',
+    h1:'通用<em>法律平台</em><br/>终于诞生',
+    sub:'17个专业AI代理涵盖所有法律领域。移民、国际商务、家庭、刑事、数字法——30秒内完成全面分析，来源引用。',
+    b1:'开始免费试用', b2:'查看演示',
+    s1:'专业代理', s2:'完整分析', s3:'覆盖国家', s4:'引用来源',
+    demoTitle:'立即测试<em>一个代理</em>',
+    contactTitle:'谈谈<em>您的项目</em>',
+    ctaH:'法律智能<br/><em>为所有人服务。</em>',
+    ctaP:'17个专业代理 · 190个国家 · 30秒分析',
+    ctaBtn:'立即开始 — 199€/月',
+    demoBtn:'用LEX分析 ⚡'
+  },
+  ja:{
+    navCta:'開始 — 199€/月',
+    badge:'17のアクティブエージェント · 190カ国 · 国際法',
+    h1:'ユニバーサル<em>法律プラットフォーム</em><br/>ついに誕生',
+    sub:'17の専門AIエージェントがすべての法律分野をカバー。移民、国際ビジネス、家族、刑事、デジタル法 — 30秒で完全分析。',
+    b1:'無料トライアル開始', b2:'デモを見る',
+    s1:'専門エージェント', s2:'完全分析', s3:'対応国数', s4:'引用ソース',
+    demoTitle:'今すぐ<em>エージェントをテスト</em>',
+    contactTitle:'<em>プロジェクト</em>について話しましょう',
+    ctaH:'法的インテリジェンス<br/><em>すべての人のために。</em>',
+    ctaP:'17の専門エージェント · 190カ国 · 30秒分析',
+    ctaBtn:'今すぐ開始 — 199€/月',
+    demoBtn:'LEXで分析 ⚡'
+  }
+};
+
+function L(code) {
+  var t = T[code] || T['fr'];
+  document.querySelectorAll('.lb').forEach(function(b){
+    b.classList.remove('on');
+    if(b.textContent === code.toUpperCase()) b.classList.add('on');
+  });
+  document.getElementById('html-root').lang = code;
+  document.getElementById('html-root').dir = code === 'ar' ? 'rtl' : 'ltr';
+  document.getElementById('navCta').textContent = t.navCta;
+  document.getElementById('badge').textContent = t.badge;
+  document.getElementById('hero-h1').innerHTML = t.h1;
+  document.getElementById('hero-sub').textContent = t.sub;
+  document.getElementById('btn1').textContent = t.b1;
+  document.getElementById('btn2').textContent = t.b2;
+  document.getElementById('s1').textContent = t.s1;
+  document.getElementById('s2').textContent = t.s2;
+  document.getElementById('s3').textContent = t.s3;
+  document.getElementById('s4').textContent = t.s4;
+  document.getElementById('demo-title').innerHTML = t.demoTitle;
+  document.getElementById('contact-title').innerHTML = t.contactTitle;
+  document.getElementById('cta-h').innerHTML = t.ctaH;
+  document.getElementById('cta-p').textContent = t.ctaP;
+  document.getElementById('cta-btn').textContent = t.ctaBtn;
+  document.querySelector('.demo-btn').textContent = t.demoBtn;
+}
+</script>
+</body>
+</html>
